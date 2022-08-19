@@ -83,8 +83,8 @@ namespace Unreal
         // See FMatrix.cs ZReversedProjectionMatrix()
         public FMatrix covert_from_projection_matrix()
         {
-            float x = 1.0f / ProjectionMatrix[1, 1];
-            float y = ProjectionMatrix[0, 0];
+            float x = ProjectionMatrix[0, 0];
+            float y = ProjectionMatrix[1, 1];
             float u = -ProjectionMatrix[0, 2];
             float v = -ProjectionMatrix[1, 2];
 
