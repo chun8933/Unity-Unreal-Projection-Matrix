@@ -39,4 +39,19 @@ public class TestMatrix : MonoBehaviour
         // Apply modification in runtime
         view.projectionMatrix = UnityMatrix;
     }
+    
+    // This may be a better way to do so.
+    Matrix4x4 ConvertToUnrealProjectionMatrix(Matrix4x4 unityProjectionMatrix)
+    {
+        // Invert the projection matrix
+        Matrix4x4 invertedMatrix = unityProjectionMatrix.inverse;
+
+        // Transpose the projection matrix
+        Matrix4x4 transposedMatrix = invertedMatrix.transpose;
+
+        // Invert the projection matrix again
+        Matrix4x4 finalMatrix = transposedMatrix.inverse;
+
+        return finalMatrix;
+    }
 }
